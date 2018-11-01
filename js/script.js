@@ -3,7 +3,7 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
 
-// Add variables that store DOM elements
+// Variables that store DOM elements
 let $students = $('.student-item');
 let pageCount = 1;
 let div = document.createElement('div');
@@ -12,7 +12,7 @@ let $anchorTags = $('a');
 let page = $(".page")[0];
 
 
-// Create a function to hide all of the items in the list except for ten students
+//  Hides all of the items in the list except for ten students
 const showPage = ($students, pageCount) => {
   let higher = pageCount * 10-1;
   let lower = pageCount * 10-10;
@@ -25,18 +25,16 @@ const showPage = ($students, pageCount) => {
   }
 }
 
-// Create the pagination links
+// Creates the pagination links
   createPageLinks = pageCount => {
   let li = document.createElement('li');
-
   li.innerHTML = '<a href="#">' + pageCount + "</a>";
   ul.appendChild(li);
   let links = ul.lastChild;
-// add an event listener to each a tag.
-// add the active class to the link that was just clicked
+// adds an event listener to each a tag.
+// adds the active class to the link that was just clicked
   links.addEventListener("click", () => {
     showPage($students, pageCount);
-
     for(let i = 0; i < $anchorTags.length; i += 1){
       $anchorTags[i].classList.remove("active");
       event.target.classList.add("active");
@@ -47,8 +45,8 @@ const showPage = ($students, pageCount) => {
 
 };
 
-//append pagination links
-// determine how many pages are needed for the list by dividing the total number
+//appends pagination links
+// determines how many pages are needed for the list by dividing the total number
 //of list items by the max number of items per page
 
   appendPageLinks = $students => {
@@ -60,7 +58,6 @@ const showPage = ($students, pageCount) => {
 
   }
 };
-
 div.className = "pagination";
 div.appendChild(ul);
 page.appendChild(div);
